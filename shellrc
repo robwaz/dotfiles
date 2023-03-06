@@ -1,0 +1,37 @@
+#Generic Shell RC config
+# Load script config file
+source "${HOME}/.dotfiles/config_vars.sh"
+
+# Load exports
+[ -f "${HOME}/.dotfiles/exportsrc" ] && source "${HOME}/.dotfiles/exportsrc"
+
+# Load aliases
+[ -f "${HOME}/.dotfiles/aliasrc" ] && source "${HOME}/.dotfiles/aliasrc"
+
+export PROMPT="%n@%m:%1~ "
+
+# History cache
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Python annoyances
+alias pip='python3 -mpip'
+alias pip3='python3 -mpip'
+
+# Add non-public facing items
+if [ -f ~/.profile_private ]; then
+    # shellcheck disable=SC1090
+    source ~/.profile_private
+fi
+
+# Zsh Specific
+if [[ "$SHELL" == *"zsh"* ]]; then
+    [ -f ~/.dotfiles/zshrc ] && source ~/.dotfiles/zshrc
+fi
+
+[ -f "/home/rob/.ghcup/env" ] && source "/home/rob/.ghcup/env" # ghcup-env
+
+# Yubikey
+if [[ ${YUBIKEY_CLIENT} == 1 ]]; then
+  source ~/.dotfiles/yubikey.rc
+fi

@@ -1,0 +1,4 @@
+config_vars.sh
+neovim/lua-language-server
+neovim/plugin/packer_compiled.lua
+packer.nvim

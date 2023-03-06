@@ -1,0 +1,9 @@
+flatpak
+g++
+ipython3
+libtool-bin
+ninja-build
+pkg-config
+python3-pip
+tesseract-ocr
+universal-ctags

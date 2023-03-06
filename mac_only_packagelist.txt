@@ -1,0 +1,11 @@
+ag
+awk
+ctags
+hadolint
+hlint
+hping
+ipython
+ninja
+nvim
+openssh
+tesseract

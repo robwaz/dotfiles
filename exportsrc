@@ -1,0 +1,13 @@
+# vi mode
+export KEYTIMEOUT=1
+
+# Exports
+export EDITOR="vim"
+export ANSIBLE_HOSTS=~/.ansible/ansible_hosts
+export PATH="$PATH:${HOME}/.npm-global/bin/"
+export PATH="$PATH:${HOME}/.local/bin/"
+export DOCKER_BUILDKIT=1
+
+if [[ ${MAC} == 1 ]]; then
+	export PATH="/opt/homebrew/bin:${PATH}"
+fi

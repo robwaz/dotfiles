@@ -1,0 +1,19 @@
+# Aliases
+
+alias vi='nvim --noplugin'
+alias vim='nvim'
+alias tracert='traceroute'
+alias l2pdf='pdflatex --file-line-error --synctex=1'
+alias ls='ls --color'
+
+# Approximate the "open" command on Linux
+if [[  $(uname -s) != "Darwin" ]]; then
+  alias open='xdg-open'
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
+# If nvim doesn't exist alias it to neovim
+if [[ -z "$(command -v nvim)" ]]; then
+  alias nvim='neovim'
+fi
