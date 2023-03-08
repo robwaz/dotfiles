@@ -12,7 +12,7 @@ read -p "Does this computer expect a yubikey? (y/n)" YUBIKEY
 # MacOS / OSX
 if [[  $(uname -s) == "Darwin" ]]; then
     MAC=1
-    echo "MAC=1" | tee -a ./config_vars.sh
+    echo "export MAC=1" | tee -a ./config_vars.sh
 
     echo "Accepting xcode license - root required"
     sudo xcodebuild -license accept
@@ -23,13 +23,13 @@ fi
 # Ubuntu
 if [[ -n $(command -v lsb_release) ]]; then
     LINUX=1
-    echo "LINUX=1" | tee -a ./config_vars.sh
+    echo "export LINUX=1" | tee -a ./config_vars.sh
     sudo apt update
     INSTALL_COMMAND='sudo apt install -y'
 fi
 
 if [[ $YUBIKEY = y ]]; then
-  echo "YUBIKEY_CLIENT=1" | tee -a ./config_vars.sh
+  echo "export YUBIKEY_CLIENT=1" | tee -a ./config_vars.sh
   # Yubico ppa
   sudo apt-add-repository -y ppa:yubico/stable
 fi
