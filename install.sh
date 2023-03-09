@@ -44,8 +44,8 @@ ${INSTALL_COMMAND} $(paste -sd ' ' ./packagelist.txt)
 if [[ "${LINUX}" == 1 ]]; then
   ${INSTALL_COMMAND} $(paste -sd ' ' ./linux_only_packagelist.txt)
 
-  # I must have bleeding edge nvim
-  ./neovim_install.sh
+    # Linux master installer script
+  ./linux_install.sh
 
 elif [[ "${MAC}" == 1 ]]; then
   ${INSTALL_COMMAND} $(paste -sd ' ' ./mac_casklist.txt)
