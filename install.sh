@@ -28,6 +28,14 @@ if [[ -n $(command -v lsb_release) ]]; then
     INSTALL_COMMAND='sudo apt install -y'
 fi
 
+# Docker & Generic Linux
+if [[  "$(uname -s)" =~ .*"Linux".* ]]; then
+    LINUX=1
+    echo "export LINUX=1" | tee -a ./config_vars.sh
+    sudo apt update
+    INSTALL_COMMAND='sudo apt install -y'
+fi
+
 if [[ $YUBIKEY = y ]]; then
   echo "export YUBIKEY_CLIENT=1" | tee -a ./config_vars.sh
   # Yubico ppa
