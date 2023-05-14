@@ -34,6 +34,9 @@ if [[ $YUBIKEY = y ]]; then
   sudo apt-add-repository -y ppa:yubico/stable
 fi
 
+# Misc setup BS
+mkdir -p ${HOME}/.config
+
 # Install packages
 echo "${INSTALL_COMMAND} ${LINE}"
 echo "Running: ${INSTALL_COMMAND} $(paste -sd ' ' ./packagelist.txt)"
