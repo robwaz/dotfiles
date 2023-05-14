@@ -1,6 +1,7 @@
 ag
 awk
 ctags
+docker
 hadolint
 hlint
 hping
