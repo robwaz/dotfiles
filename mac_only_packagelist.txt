@@ -1,5 +1,6 @@
 ag
 awk
+binutils
 ctags
 docker
 hadolint
