@@ -9,4 +9,5 @@ ipython
 ninja
 nvim
 openssh
+pyright
 tesseract
