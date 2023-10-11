@@ -1,12 +1,12 @@
 #Generic Shell RC config
 # Load script config file
-source "${HOME}/.dotfiles/config_vars.sh"
+. "${HOME}/.dotfiles/config_vars.sh"
 
 # Load exports
-[ -f "${HOME}/.dotfiles/exportsrc" ] && source "${HOME}/.dotfiles/exportsrc"
+[ -f "${HOME}/.dotfiles/exportsrc" ] && . "${HOME}/.dotfiles/exportsrc"
 
 # Load aliases
-[ -f "${HOME}/.dotfiles/aliasrc" ] && source "${HOME}/.dotfiles/aliasrc"
+[ -f "${HOME}/.dotfiles/aliasrc" ] && . "${HOME}/.dotfiles/aliasrc"
 
 export PROMPT="%n@%m:%1~ "
 
@@ -21,17 +21,20 @@ alias pip3='python3 -mpip'
 # Add non-public facing items
 if [ -f ~/.profile_private ]; then
     # shellcheck disable=SC1090
-    source ~/.profile_private
+    . ~/.profile_private
 fi
 
 # Zsh Specific
 if [[ "$SHELL" == *"zsh"* ]]; then
-    [ -f ~/.dotfiles/zshrc ] && source ~/.dotfiles/zshrc
+    [ -f ~/.dotfiles/zshrc ] && . ~/.dotfiles/zshrc
 fi
 
-[ -f "/home/rob/.ghcup/env" ] && source "/home/rob/.ghcup/env" # ghcup-env
+[ -f "/home/rob/.ghcup/env" ] && . "/home/rob/.ghcup/env" # ghcup-env
 
 # Yubikey
 if [[ ${YUBIKEY_CLIENT} == 1 ]]; then
-  source ~/.dotfiles/yubikey.rc
+  . ~/.dotfiles/yubikey.rc
 fi
+
+# Rust
+[ -f $"HOME/.cargo/env" ] && . "$HOME/.cargo/env"
