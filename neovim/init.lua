@@ -10,6 +10,7 @@ require("nv-galaxyline")
 require("nv-autopairs")
 require("nv-nvim-tree")
 require("nv-ts")
+require("nv-lualine")
 
 -- LSP
 require("nv-hls")

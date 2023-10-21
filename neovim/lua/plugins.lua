@@ -13,16 +13,14 @@ return require('packer').startup(function(use)
   use 'christianchiarulli/nvcode-color-schemes.vim'
   use 'windwp/nvim-autopairs'
   use 'tikhomirov/vim-glsl'
-  use {'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    }
-  }
+  use {'nvim-tree/nvim-tree.lua',requires = {'nvim-tree/nvim-web-devicons'}}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.4', requires = 'nvim-lua/plenary.nvim'}
   use {"NTBBloodbath/galaxyline.nvim", requires = "kyazdani42/nvim-web-devicons"}
+  use {'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 
   if Packer_bootstrap then
     require('packer').sync()
