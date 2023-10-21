@@ -6,7 +6,6 @@ require("colors")
 -- Plugins
 require("nv-cmp")
 require("nv-bufferline")
-require("nv-galaxyline")
 require("nv-autopairs")
 require("nv-nvim-tree")
 require("nv-ts")
