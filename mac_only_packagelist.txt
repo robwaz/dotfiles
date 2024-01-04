@@ -1,5 +1,6 @@
 ag
 awk
+bash-language-server
 binutils
 ctags
 docker
