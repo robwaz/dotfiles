@@ -27,6 +27,9 @@ SAVEHIST=10000
 # Python annoyances
 alias pip='python3 -mpip'
 alias pip3='python3 -mpip'
+alias python='python3'
+alias ipython='python3 -m IPython'
+alias ipython3='python3 -m IPython'
 
 # Add non-public facing items
 if [ -f ~/.profile_private ]; then
