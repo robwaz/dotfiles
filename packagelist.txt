@@ -3,6 +3,7 @@ automake
 bear
 black
 bvi
+clang
 cmake
 cowsay
 curl
