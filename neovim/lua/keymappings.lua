@@ -9,10 +9,19 @@ vim.keymap.set('n', '<Leader>h', ':set hlsearch!<CR>', OPTS)
 vim.keymap.set('n', '<Leader>e', ':NvimTreeToggle<CR>', OPTS)
 
 -- Telescope
+local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>ff', ':Telescope find_files<cr>', OPTS)
 vim.keymap.set('n', '<Leader>fg', ':Telescope live_grep<cr>', OPTS)
 vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<cr>', OPTS)
 vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<cr>', OPTS)
+vim.keymap.set('n', '<leader>fw', function()
+  local word = vim.fn.expand("<cword>")
+  builtin.grep_string({search = word})
+end)
+vim.keymap.set('n', '<leader>fW', function()
+  local word = vim.fn.expand("<cWORD>")
+  builtin.grep_string({search = word})
+end)
 
 -- LSP
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', OPTS)
