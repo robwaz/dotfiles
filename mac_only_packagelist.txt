@@ -2,6 +2,7 @@ ag
 awk
 bash-language-server
 binutils
+cilium-cli
 ctags
 docker
 hadolint
