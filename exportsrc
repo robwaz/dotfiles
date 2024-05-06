@@ -9,6 +9,6 @@ export PATH="$PATH:${HOME}/.local/bin/"
 export DOCKER_BUILDKIT=1
 
 if [[ ${MAC} == 1 ]]; then
-	export PATH="/opt/homebrew/bin:${PATH}"
-	export PATH="${PATH}:/opt/homebrew/opt/binutils/bin"
+  export PATH="/opt/homebrew/bin:${PATH}"
+  export PATH="/opt/homebrew/Cellar/coreutils/9.4/libexec/gnubin:${PATH}"
 fi
