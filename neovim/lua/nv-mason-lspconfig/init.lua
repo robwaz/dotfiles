@@ -1,0 +1,20 @@
+require("mason-lspconfig").setup{
+  ensure_installed = {
+    "asm_lsp",
+    "autotools_ls",
+    "bashls",
+    "clangd",
+    "cmake",
+    "docker_compose_language_service",
+    "dockerls",
+    "jsonls",
+    "ltex",
+    "lua_ls",
+    "markdown_oxide",
+    "pyright",
+    "rust_analyzer",
+    "sqls",
+    "taplo",
+    "yamlls",
+  }
+}

@@ -10,6 +10,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- LSP
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
 
