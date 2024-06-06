@@ -72,8 +72,9 @@ elif [[ "$MAC" == 1 ]]; then
 	unzip -o /tmp/Hack.zip -d ${HOME}/Library/Fonts
 fi
 
-# Install Python packages
-python3 -mpip install --user $(paste -sd ' ' ./python_packagelist.txt)
+# Install Python packages 
+# - break everything I WANT THESE EVERYWHERE ALL THE TIME
+python3 -mpip install --break-system-packages --user $(paste -sd ' ' ./python_packagelist.txt)
 
 # neovim config
 ./lsp_setup.sh
