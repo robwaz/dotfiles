@@ -31,7 +31,6 @@ python3
 ranger
 rclone
 ripgrep
-sqlite
 texlive
 tmux
 tree
@@ -39,5 +38,4 @@ unzip
 vlc
 wget
 wine-stable
-youtube-dl
 zsh
