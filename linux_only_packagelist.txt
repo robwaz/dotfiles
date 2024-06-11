@@ -2,6 +2,7 @@ cryptsetup
 dirmngr
 flatpak
 g++
+gdb
 gnupg-agent
 gnupg2
 hopenpgp-tools
