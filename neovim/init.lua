@@ -15,9 +15,5 @@ require("nv-formatter")
 
 -- LSP
 require("nv-mason")
+require("nv-lspconfig")
 require("nv-mason-lspconfig")
-require("lspconfig")
-
-require("nv-clangd")
-require("nv-hls")
-require("nv-rust-analyzer")
