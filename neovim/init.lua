@@ -11,7 +11,6 @@ require("nv-bufferline")
 require("nv-nvim-tree")
 require("nv-ts")
 require("nv-lualine")
-require("nv-formatter")
 
 -- LSP
 require("nv-mason")
