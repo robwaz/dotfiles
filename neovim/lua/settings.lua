@@ -22,3 +22,9 @@ vim.o.relativenumber=true           -- Show jump distance
 vim.o.number=true                   -- Show current line #
 vim.o.backspace="indent,eol,start"  -- ???
 vim.o.syntax="true"                 -- Makes it easier to know which line is current
+
+-- Configure make command
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'tex',
+  command = 'setlocal makeprg=pdflatex\\ %'
+})
