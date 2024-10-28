@@ -5,12 +5,12 @@ require("keymappings")
 require("colors")
 
 -- Plugins
-require("nv-cmp")
 require("nv-bufferline")
--- require("nv-autopairs")
 require("nv-nvim-tree")
 require("nv-ts")
 require("nv-lualine")
+require("nv-gitsigns")
+require("nv-cmp")
 
 -- LSP
 require("nv-mason")
