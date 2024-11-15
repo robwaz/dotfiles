@@ -87,15 +87,10 @@ rm -rf ~/.config/nvim
 ln -s ${PWD}/neovim  ~/.config/nvim
 
 # Set Home Directory
-rm ~/.pylintrc 2>/dev/null || true
-rm ~/.tmux.conf 2>/dev/null || true
-rm ~/.zshrc 2>/dev/null || true
-rm ~/.bashrc 2>/dev/null || true
-
-ln -s ${PWD}/pylintrc ~/.pylintrc
-ln -s ${PWD}/tmux.conf ~/.tmux.conf
-ln -s ${PWD}/shellrc ~/.zshrc
-ln -s ${PWD}/shellrc ~/.bashrc
+ln -sf ${PWD}/pylintrc ~/.pylintrc
+ln -sf ${PWD}/tmux.conf ~/.tmux.conf
+ln -sf ${PWD}/shellrc ~/.zshrc
+ln -sf ${PWD}/shellrc ~/.bashrc
 
 mkdir -p ${HOME}/.ipython/profile_default
-ln -s ${PWD}/ipython_config.py ${HOME}/.ipython/profile_default/ipython_config.py
+ln -sf ${PWD}/ipython_config.py ${HOME}/.ipython/profile_default/ipython_config.py
