@@ -12,6 +12,7 @@ ipython
 ninja
 nvim
 openssh
+protobuf
 pyright
 tesseract
 rust-analyzer
