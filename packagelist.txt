@@ -20,6 +20,7 @@ imagemagick
 iperf
 irssi
 libtool
+llvm
 mpv
 nmap
 npm
