@@ -17,10 +17,3 @@ fi
 if [[ -z "$(command -v nvim)" ]]; then
   alias nvim='neovim'
 fi
-# Python annoyances
-alias pip='python3 -mpip'
-alias pip3='python3 -mpip'
-alias python='python3'
-alias ipython='python3 -m IPython'
-alias ipython3='python3 -m IPython'
-

@@ -7,9 +7,3 @@ export ANSIBLE_HOSTS=~/.ansible/ansible_hosts
 export PATH="$PATH:${HOME}/.npm-global/bin/"
 export PATH="$PATH:${HOME}/.local/bin/"
 export DOCKER_BUILDKIT=1
-
-if [[ ${MAC} == 1 ]]; then
-  export PATH="/opt/homebrew/bin:${PATH}"
-  export PATH="/opt/homebrew/Cellar/coreutils/9.4/libexec/gnubin:${PATH}"
-  export PATH="/opt/homebrew/opt/llvm/bin:${PATH}"
-fi

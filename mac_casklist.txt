@@ -1,6 +1,5 @@
 discord
 doxie
-evernote
 firefox
 google-chrome
 iterm2
