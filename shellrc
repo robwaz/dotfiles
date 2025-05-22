@@ -47,6 +47,3 @@ fi
 if [[ ${YUBIKEY_CLIENT} == 1 ]]; then
   . ~/.dotfiles/yubikey.rc
 fi
-
-# Rust
-[ -f $"HOME/.cargo/env" ] && . "$HOME/.cargo/env"

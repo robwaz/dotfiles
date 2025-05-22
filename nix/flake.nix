@@ -1,30 +1,13 @@
 # Todo
-# - doxie
-# - chrome
-# - iterm2
-# - office
-# - obs
-# - tunnelblick
-# - vlc
-# - vscode
-# wine
-# crossover
-# yubikey-manager
-# hopper
-# ida
-# obsidian
-# amethyst
-# textlive
+# - Install homebrew from within nix?
+
+# # Packages to add
 # binja
-# zotero
-# final cut pro
-# thinkorswim 
-# userscripts
-# pixelmator pro
-# logic pro
+# ida
 # lightroom classic
-# handbrake
-# path-of-building
+# pob
+# userscripts
+# wine
 
 {
   description = "Robwaz nix-darwin flake";
@@ -61,6 +44,8 @@
       in {
         environment.systemPackages = with pkgs;
           [ alacritty
+            aerospace
+            ansible
             bash-language-server
             bat
             binutils
@@ -86,6 +71,7 @@
             ghidra
             git
             gnupg
+            google-chrome
             hadolint
             hexedit
             hexyl
@@ -95,8 +81,13 @@
             imagemagick
             iperf
             irssi
+            iterm2
+            jq
             llvm
             neovim
+            obsidian
+            mas
+            metasploit
             mpv
             nmap
             ollama
@@ -104,7 +95,9 @@
             pandoc
             parallel
             patchelf
+            pgcli
             podman # docker can't nix :(
+            powershell
             pyright
             py313
             python313Packages.pip
@@ -112,19 +105,24 @@
             ranger
             rclone
             ripgrep
+            rustup
             rust-analyzer
             silver-searcher
             slack
+            skimpdf
             spotify
-              #stack # Broken package?
+              # stack # Broken package?
             tesseract
+            texliveFull
             tmux
             tree
             unzip
             uv
+            vscode
             wget
             yt-dlp
             zoom-us
+            zotero
             zsh
           ];
 
@@ -136,8 +134,57 @@
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
 
+        system.defaults = {
+            dock.autohide = true;
+
+        };
+
         system.stateVersion = 6;
         nixpkgs.hostPlatform = "aarch64-darwin";
+
+        homebrew = {
+          enable = true;
+          brews = [];
+          casks = [
+            "amethyst"
+            "crossover"
+            "doxie"
+            "microsoft-office"
+            "obs"
+            "rode-central"
+            "steam"
+            "thinkorswim"
+            "tunnelblick"
+            "transmission"
+            "vlc"
+            "wine-stable"
+            "yubico-yubikey-manager"
+          ];
+          masApps = {
+            "1Password for Safari" = 1569813296;
+            "Amphetamine" = 937984704;
+            "BetterSnapTool" = 417375580;
+            "Compressor" = 424390742;
+            "Developer" = 640199958;
+            "Final Cut Pro" = 424389933;
+            "Goodnotes" = 1444383602;
+            "Keynote" = 409183694;
+            "Kindle Classic" = 405399194;
+            "Logic" = 634148309;
+            "MainStage" = 634159523;
+            "Motion" = 434290957;
+            "Noir" = 1592917505;
+            "Numbers" = 409203825;
+            "Pages" = 409201541;
+            "Pixelmator Pro" = 1289583905;
+            "StopTheMadness Pro" = 6471380298;
+            "TestFlight" = 899247664;
+            "The Unarchiver" = 425424353;
+            "Userscripts" = 1463298887;
+            "Windows App" = 1295203466;
+            "Xcode" = 497799835;
+          };
+        };
 
         nixpkgs.config.allowUnfree = true;
 
@@ -164,7 +211,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import "${inputs.self}/home.nix";
         }
-     ];
+      ];
     };
   };
 }
