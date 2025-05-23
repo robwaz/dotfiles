@@ -42,101 +42,123 @@
           gdb = gdb-py313;
         };
       in {
-        environment.systemPackages = with pkgs;
-          [ alacritty
-            aerospace
-            ansible
-            bash-language-server
-            bat
-            binutils
-            browsh
-            btop
-            cilium-cli
-            clang
-            cmake
-            cowsay
-            curl
-            discord
-            doxygen
-            feh
-            ffmpeg
-            file
-            firefox
-            fzf
-            gawk
-            gcc
-            gdb-py313
-            gef-py313
-            gh
-            ghidra
-            git
-            gnupg
-            google-chrome
-            hadolint
-            hexedit
-            hexyl
-            hlint
-            hping
-            htop
-            imagemagick
-            iperf
-            irssi
-            iterm2
-            jq
-            llvm
-            neovim
-            obsidian
-            mas
-            metasploit
-            mpv
-            nmap
-            ollama
-            nodejs
-            pandoc
-            parallel
-            patchelf
-            pgcli
-            podman # docker can't nix :(
-            powershell
-            pyright
-            py313
-            python313Packages.pip
-            # Add other python packages to py313
-            ranger
-            rclone
-            ripgrep
-            rustup
-            rust-analyzer
-            silver-searcher
-            slack
-            skimpdf
-            spotify
-              # stack # Broken package?
-            tesseract
-            texliveFull
-            tmux
-            tree
-            unzip
-            uv
-            vscode
-            wget
-            yt-dlp
-            zoom-us
-            zotero
-            zsh
+        launchd.user.agents = {
+          ollama-serve = {
+            command = "${pkgs.ollama}/bin/ollama serve";
+            serviceConfig = {
+              KeepAlive = true;
+              RunAtLoad = true;
+              StandardOutPath = "/tmp/ollama-serve.out.log";
+              StandardErrorPath = "/tmp/ollama-serve.err.log";
+            };
+          };
+        };
+
+        environment.systemPackages = with pkgs; [
+          alacritty
+          aerospace
+          ansible
+          bash-language-server
+          bat
+          binutils
+          browsh
+          btop
+          cilium-cli
+          clang
+          cmake
+          cowsay
+          curl
+          discord
+          doxygen
+          elixir
+          feh
+          ffmpeg
+          file
+          firefox
+          fzf
+          gawk
+          gcc
+          gdb-py313
+          gef-py313
+          gh
+          ghidra
+          git
+          gnupg
+          hadolint
+          hexedit
+          hexyl
+          hlint
+          home-manager
+          hping
+          htop
+          imagemagick
+          iperf
+          irssi
+          iterm2
+          jq
+          llvm
+          neovim
+          obsidian
+          mas
+          metasploit
+          mpv
+          nmap
+          ollama
+          nodejs
+          pandoc
+          parallel
+          patchelf
+          pgcli
+          podman
+          powershell
+          pyright
+          py313
+          python313Packages.pip
+          # Add other python packages to py313
+          ranger
+          rclone
+          ripgrep
+          rustup
+          rust-analyzer
+          silver-searcher
+          slack
+          skimpdf
+            # stack # Broken package?
+          tesseract
+          texliveFull
+          tmux
+          tree
+          unzip
+          uv
+          #vscode
+          wget
+          yt-dlp
+          zoom-us
+          zsh
           ];
 
         # Necessary for using flakes without annoyance
         nix.settings.experimental-features = "nix-command flakes";
         nix.settings.trusted-users = [ "root" "robwaz" ];
-
+        nix.enable = true;
 
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
 
         system.defaults = {
             dock.autohide = true;
-
+            dock.persistent-apps = [
+              "/Applications/NixLinkedApps/Alacritty.app"
+              "/System/Cryptexes/App/System/Applications/Safari.app"
+              "/Applications/NixLinkedApps/Discord.app"
+              "/Applications/NixLinkedApps/Obsidian.app"
+              "/Applications/ChatGpT.app"
+              "/Applications/Spotify.app"
+              "/System/Applications/Mail.app"
+              "/System/Applications/Calendar.app"
+              "/Applications/NixLinkedApps/Slack.app"
+              "/Applications/Zotero.app"
+            ];
         };
 
         system.stateVersion = 6;
@@ -145,13 +167,17 @@
         homebrew = {
           enable = true;
           brews = [];
+          whalebrews = []; # docker images to auto-pull
           casks = [
             "amethyst"
+            "bambu-studio"
             "crossover"
             "doxie"
+            "google-chrome"
             "microsoft-office"
             "obs"
             "rode-central"
+            "spotify"
             "steam"
             "thinkorswim"
             "tunnelblick"
@@ -159,6 +185,7 @@
             "vlc"
             "wine-stable"
             "yubico-yubikey-manager"
+            "zotero"
           ];
           masApps = {
             "1Password for Safari" = 1569813296;
@@ -187,7 +214,6 @@
         };
 
         nixpkgs.config.allowUnfree = true;
-
         nixLinkedApps.enable = true;
         users.users.robwaz = {
           name = "robwaz";
@@ -210,6 +236,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${username} = import "${inputs.self}/home.nix";
+          nixpkgs.config.allowUnfree = true;
         }
       ];
     };

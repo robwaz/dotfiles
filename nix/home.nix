@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, ... }:
   let
     dotfilesDir = ../.;
   in {
@@ -7,6 +7,10 @@
     home.stateVersion = "23.11";
 
     programs.git.enable = true;
+
+    home.packages = with pkgs; [
+      home-manager
+    ];
 
     home.file = {
     ".tmux.conf".source = "${dotfilesDir}/tmux.conf";
