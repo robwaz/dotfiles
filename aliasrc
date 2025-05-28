@@ -5,7 +5,6 @@ alias vim='nvim'
 alias tracert='traceroute'
 alias l2pdf='pdflatex --file-line-error --synctex=1'
 alias ls='ls --color'
-alias docker='podman'
 
 # Approximate the "open" command on Linux
 if [[  $(uname -s) != "Darwin" ]]; then

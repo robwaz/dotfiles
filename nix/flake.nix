@@ -11,7 +11,6 @@
 
 {
   description = "Robwaz nix-darwin flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
@@ -23,6 +22,9 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     username = "robwaz";
+    dir = "${inputs.self}/derivations";
+    files = builtins.attrNames (builtins.readDir dir);
+    derivations = map (file: import (dir + "/${file}")) (builtins.filter (name: nixpkgs.lib.hasSuffix ".nix" name) files);
     configuration = { pkgs, ... }: 
       let 
         py313 = with pkgs;
@@ -66,6 +68,7 @@
           cilium-cli
           clang
           cmake
+          colima
           cowsay
           curl
           discord
@@ -238,7 +241,10 @@
           home-manager.users.${username} = import "${inputs.self}/home.nix";
           nixpkgs.config.allowUnfree = true;
         }
+        derivations
       ];
     };
+    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
   };
 }
