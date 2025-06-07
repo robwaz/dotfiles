@@ -1,12 +1,10 @@
 { pkgs
-, lib
-, gdb
-, python3
-, fetchFromGitHub
+, gdb ? pkgs.gdb
+, python3 ? pkgs.python3
 }:
 
-
 let
+  lib = pkgs.lib;
   pythonPath =
     with python3.pkgs;
     makePythonPath [
@@ -20,28 +18,28 @@ python3.pkgs.buildPythonPackage rec {
   pname = "bata24-gef";
   version = "unstable-2025-05-28";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "bata24";
     repo = "gef";
-    rev = "dev";  # or use a commit hash for reproducibility
+    rev = "4d7dc1d9a5a407aea3935622150aeea1fcf355dc";
     sha256 = "sha256-xlTIQ0VbktdYHT4JRK6HzoKKT7WzKqqPS0aTbpvBMV0="; # replace after first build
   };
 
-  format = "other"; # not a standard Python package layout
+  format = "other";
 
   nativeBuildInputs = [ pkgs.makeWrapper ];
 
   installPhase = ''
-    mkdir -p $out/share/gef
-    cp gef.py $out/share/gef
+    mkdir -p $out/share/bata24-gef
+    cp gef.py $out/share/bata24-gef
     makeWrapper ${gdb}/bin/gdb $out/bin/bata24-gef \
-      --add-flags "-q -x $out/share/gef/gef.py" \
+      --add-flags "-q -x $out/share/bata24-gef/gef.py" \
       --set NIX_PYTHONPATH ${pythonPath} \
       --prefix PATH : ${
         lib.makeBinPath [
           pkgs.gdb
           python3
-          pkgs.bintools-unwrapped # for readelf
+          pkgs.bintools-unwrapped
           pkgs.file
           pkgs.ps
         ]

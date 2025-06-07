@@ -12,19 +12,19 @@
 {
   description = "Robwaz nix-darwin flake";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    pkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.inputs.pkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.pkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, pkgs, home-manager }:
   let
     username = "robwaz";
-    dir = "${inputs.self}/derivations";
-    files = builtins.attrNames (builtins.readDir dir);
-    derivations = map (file: import (dir + "/${file}")) (builtins.filter (name: nixpkgs.lib.hasSuffix ".nix" name) files);
+    system = "aarch64-darwin";
+    lib = pkgs.lib;
+
     configuration = { pkgs, ... }: 
       let 
         py313 = with pkgs;
@@ -43,6 +43,7 @@
           python3 = py313;
           gdb = gdb-py313;
         };
+        bata24-gef = import ./derivations/bata24-gef.nix {inherit pkgs;};
       in {
         launchd.user.agents = {
           ollama-serve = {
@@ -62,6 +63,7 @@
           ansible
           bash-language-server
           bat
+          bata24-gef
           binutils
           browsh
           btop
@@ -131,6 +133,7 @@
           texliveFull
           tmux
           tree
+          unixtools.watch
           unzip
           uv
           #vscode
@@ -241,10 +244,7 @@
           home-manager.users.${username} = import "${inputs.self}/home.nix";
           nixpkgs.config.allowUnfree = true;
         }
-        derivations
       ];
     };
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
   };
 }
