@@ -1,4 +1,4 @@
-# Todo
+## Todo
 # - Install homebrew from within nix?
 
 # # Packages to add
