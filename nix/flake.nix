@@ -1,4 +1,4 @@
-# Todo
+## Todo
 # - Install homebrew from within nix?
 
 # # Packages to add
@@ -143,6 +143,11 @@
           zsh
           ];
 
+        fonts.packages = with pkgs; [
+          nerd-fonts.hack
+        ];
+
+
         # Necessary for using flakes without annoyance
         nix.settings.experimental-features = "nix-command flakes";
         nix.settings.trusted-users = [ "root" "robwaz" ];
@@ -151,20 +156,22 @@
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
 
+        system.keyboard.enableKeyMapping = true;
+        system.keyboard.remapCapsLockToEscape = true;
         system.defaults = {
-            dock.autohide = true;
-            dock.persistent-apps = [
-              "/Applications/NixLinkedApps/Alacritty.app"
-              "/System/Cryptexes/App/System/Applications/Safari.app"
-              "/Applications/NixLinkedApps/Discord.app"
-              "/Applications/NixLinkedApps/Obsidian.app"
-              "/Applications/ChatGpT.app"
-              "/Applications/Spotify.app"
-              "/System/Applications/Mail.app"
-              "/System/Applications/Calendar.app"
-              "/Applications/NixLinkedApps/Slack.app"
-              "/Applications/Zotero.app"
-            ];
+          dock.autohide = true;
+          dock.persistent-apps = [
+            "/Applications/NixLinkedApps/Alacritty.app"
+            "/System/Cryptexes/App/System/Applications/Safari.app"
+            "/Applications/NixLinkedApps/Discord.app"
+            "/Applications/NixLinkedApps/Obsidian.app"
+            "/Applications/ChatGpT.app"
+            "/Applications/Spotify.app"
+            "/System/Applications/Mail.app"
+            "/System/Applications/Calendar.app"
+            "/Applications/NixLinkedApps/Slack.app"
+            "/Applications/Zotero.app"
+          ];
         };
 
         system.stateVersion = 6;
@@ -177,6 +184,7 @@
           casks = [
             "amethyst"
             "bambu-studio"
+            "chatgpt"
             "crossover"
             "doxie"
             "google-chrome"
@@ -185,12 +193,10 @@
             "rode-central"
             "spotify"
             "steam"
-            "thinkorswim"
             "tunnelblick"
             "transmission"
             "vlc"
             "wine-stable"
-            "yubico-yubikey-manager"
             "zotero"
           ];
           masApps = {
