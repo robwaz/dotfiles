@@ -159,6 +159,10 @@
         system.keyboard.enableKeyMapping = true;
         system.keyboard.remapCapsLockToEscape = true;
         system.defaults = {
+          dock.minimize-to-application = true;
+          dock.show-recents = false;
+          dock.tilesize = 48;
+          dock.orientation = "left";
           dock.autohide = true;
           dock.persistent-apps = [
             "/Applications/NixLinkedApps/Alacritty.app"
@@ -172,6 +176,21 @@
             "/Applications/NixLinkedApps/Slack.app"
             "/Applications/Zotero.app"
           ];
+
+          finder.FXPreferredViewStyle = "Nlsv";
+          finder.NewWindowTarget = "Home";
+          finder.ShowPathbar = true;
+          finder.ShowStatusBar = true;
+
+          loginwindow.GuestEnabled = false;
+          loginwindow.SHOWFULLNAME = true;
+
+          menuExtraClock.Show24Hour = true;
+
+          # tap to click
+          trackpad.Clicking = true;
+          trackpad.TrackpadThreeFingerDrag = true;
+
         };
 
         system.stateVersion = 6;
@@ -186,6 +205,7 @@
             "bambu-studio"
             "chatgpt"
             "crossover"
+            "docker"
             "doxie"
             "google-chrome"
             "microsoft-office"
