@@ -73,7 +73,6 @@
           colima
           cowsay
           curl
-          discord
           doxygen
           elixir
           feh
@@ -89,6 +88,7 @@
           ghidra
           git
           gnupg
+          go
           hadolint
           hexedit
           hexyl
@@ -102,6 +102,7 @@
           iterm2
           jq
           llvm
+          mosh
           neovim
           obsidian
           mas
@@ -129,10 +130,12 @@
           slack
           skimpdf
             # stack # Broken package?
+          sqls
           tesseract
           texliveFull
           tmux
           tree
+          tree-sitter
           unixtools.watch
           unzip
           uv
@@ -205,6 +208,7 @@
             "bambu-studio"
             "chatgpt"
             "crossover"
+            "discord"
             "docker"
             "doxie"
             "google-chrome"
