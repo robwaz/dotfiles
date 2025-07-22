@@ -14,9 +14,8 @@
   inputs = {
     pkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-darwin.inputs.pkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.pkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager/master";
+
   };
 
   outputs = inputs@{ self, nix-darwin, pkgs, home-manager }:
@@ -45,6 +44,15 @@
         };
         bata24-gef = import ./derivations/bata24-gef.nix {inherit pkgs;};
       in {
+       nixpkgs.overlays = [
+        (final: prev: {
+          clang = prev.clang.override {
+            apple-sdk = prev.darwin.apple_sdk_11_0;  # Adjust as needed
+          };
+        })
+      ];
+
+
         launchd.user.agents = {
           ollama-serve = {
             command = "${pkgs.ollama}/bin/ollama serve";
@@ -61,6 +69,9 @@
           alacritty
           aerospace
           ansible
+          apple-sdk
+          asm-lsp
+          awscli2
           bash-language-server
           bat
           bata24-gef
@@ -77,6 +88,7 @@
           elixir
           feh
           ffmpeg
+          figlet
           file
           firefox
           fzf
@@ -110,6 +122,7 @@
           mpv
           nmap
           ollama
+          openssh
           nodejs
           pandoc
           parallel
@@ -124,6 +137,7 @@
           ranger
           rclone
           ripgrep
+          ruby
           rustup
           rust-analyzer
           silver-searcher
@@ -131,6 +145,7 @@
           skimpdf
             # stack # Broken package?
           sqls
+          sshfs
           tesseract
           texliveFull
           tmux
@@ -191,8 +206,9 @@
           menuExtraClock.Show24Hour = true;
 
           # tap to click
-          trackpad.Clicking = true;
+          NSGlobalDomain."com.apple.trackpad.forceClick" = true;
           trackpad.TrackpadThreeFingerDrag = true;
+
 
         };
 
@@ -212,6 +228,7 @@
             "docker"
             "doxie"
             "google-chrome"
+            "macfuse"
             "microsoft-office"
             "obs"
             "rode-central"
@@ -234,8 +251,8 @@
             "Keynote" = 409183694;
             "Kindle Classic" = 405399194;
             "Logic" = 634148309;
-            "MainStage" = 634159523;
-            "Motion" = 434290957;
+              # "MainStage" = 634159523;
+              # "Motion" = 434290957;
             "Noir" = 1592917505;
             "Numbers" = 409203825;
             "Pages" = 409201541;
@@ -244,7 +261,7 @@
             "TestFlight" = 899247664;
             "The Unarchiver" = 425424353;
             "Userscripts" = 1463298887;
-            "Windows App" = 1295203466;
+              # "Windows App" = 1295203466;
             "Xcode" = 497799835;
           };
         };
