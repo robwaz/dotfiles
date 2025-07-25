@@ -12,17 +12,20 @@
 {
   description = "Robwaz nix-darwin flake";
   inputs = {
-    pkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     home-manager.url = "github:nix-community/home-manager/master";
-
   };
 
-  outputs = inputs@{ self, nix-darwin, pkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     username = "robwaz";
     system = "aarch64-darwin";
-    lib = pkgs.lib;
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
 
     configuration = { pkgs, ... }: 
       let 
@@ -32,6 +35,7 @@
               pandas
               pwntools
               ninja
+              aider-chat-full
             ]);
         gdb-py313 = with pkgs; 
           gdb.override {
@@ -44,13 +48,13 @@
         };
         bata24-gef = import ./derivations/bata24-gef.nix {inherit pkgs;};
       in {
-       nixpkgs.overlays = [
-        (final: prev: {
-          clang = prev.clang.override {
-            apple-sdk = prev.darwin.apple_sdk_11_0;  # Adjust as needed
-          };
-        })
-      ];
+          # pkgs.overlays = [
+          #        (final: prev: {
+          #clang = prev.clang.override {
+          #  apple-sdk = prev.darwin.apple_sdk_11_0;  # Adjust as needed
+          #          };
+          #        })
+          #      ];
 
 
         launchd.user.agents = {
@@ -67,6 +71,7 @@
 
         environment.systemPackages = with pkgs; [
           alacritty
+          apple-sdk
           aerospace
           ansible
           apple-sdk
@@ -79,9 +84,10 @@
           browsh
           btop
           cilium-cli
-          clang
+          claude-code
           cmake
           colima
+          container
           cowsay
           curl
           doxygen
@@ -93,7 +99,6 @@
           firefox
           fzf
           gawk
-          gcc
           gdb-py313
           gef-py313
           gh
@@ -114,6 +119,7 @@
           iterm2
           jq
           llvm
+          lua-language-server
           mosh
           neovim
           obsidian
@@ -144,7 +150,6 @@
           slack
           skimpdf
             # stack # Broken package?
-          sqls
           sshfs
           tesseract
           texliveFull
@@ -173,11 +178,13 @@
 
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
+        system.primaryUser = "robwaz";
 
         system.keyboard.enableKeyMapping = true;
         system.keyboard.remapCapsLockToEscape = true;
         system.defaults = {
           dock.minimize-to-application = true;
+          dock.mru-spaces = false;
           dock.show-recents = false;
           dock.tilesize = 48;
           dock.orientation = "left";
@@ -208,6 +215,8 @@
           # tap to click
           NSGlobalDomain."com.apple.trackpad.forceClick" = true;
           trackpad.TrackpadThreeFingerDrag = true;
+          trackpad.TrackpadThreeFingerTapGesture = 2;
+          spaces.spans-displays = false;
 
 
         };
@@ -277,8 +286,9 @@
   in
   {
     darwinConfigurations."armnhammer" = nix-darwin.lib.darwinSystem {
+      system = system;
       specialArgs = {
-        inherit username;
+        inherit username pkgs;
         inputs = { inherit home-manager; };
       };
       modules = [
