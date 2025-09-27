@@ -1,59 +1,52 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require"lspconfig".asm_lsp.setup{
-  filetypes = {
-   "asm"
-  },
+vim.lsp.config("asm_lsp", {
+  filetypes = {"asm"},
   capabilities = capabilities
-}
-require"lspconfig".autotools_ls.setup{
-  capabilities = capabilities
-}
-require"lspconfig".bashls.setup{
-  capabilities = capabilities
-}
-require('lspconfig').clangd.setup{
-  filetypes = {
-    "c",
-    "cpp"
-  },
-  capabilities = capabilities
-}
-require"lspconfig".cmake.setup{
-  capabilities = capabilities
-}
-require"lspconfig".docker_compose_language_service.setup{
-  capabilities = capabilities
-}
-require"lspconfig".dockerls.setup{
-  capabilities = capabilities
-}
-require('lspconfig').hls.setup{
-  filetypes = {
-    "haskell"
-  },
-  capabilities = capabilities
-}
-require"lspconfig".jsonls.setup{
-  capabilities = capabilities
-}
-require"lspconfig".ltex.setup{
-  capabilities = capabilities
-}
-require"lspconfig".lua_ls.setup{
-  capabilities = capabilities
-}
-require"lspconfig".markdown_oxide.setup{
-  capabilities = capabilities
-}
-require"lspconfig".pyright.setup{
-  filetypes = {
-    "python"
-  },
-  capabilities = capabilities
-}
+})
 
-require'lspconfig'.rust_analyzer.setup({
+vim.lsp.config("autotools_ls", {
+  capabilities = capabilities
+})
+
+vim.lsp.config("bashls", {
+  capabilities = capabilities
+})
+vim.lsp.config("clangd", {
+  filetypes = {"c","cpp"},
+  capabilities = capabilities
+})
+vim.lsp.config("cmake", {
+  capabilities = capabilities
+})
+vim.lsp.config("docker_compose_language_service", {
+  capabilities = capabilities
+})
+vim.lsp.config("dockerls", {
+  capabilities = capabilities
+})
+vim.lsp.config("hls", {
+  filetypes = {"haskell"},
+  capabilities = capabilities
+})
+vim.lsp.config("jsonls", {
+  capabilities = capabilities
+})
+vim.lsp.config("ltex", {
+  capabilities = capabilities
+})
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities
+})
+vim.lsp.config("markdown_oxide", {
+  capabilities = capabilities
+})
+vim.lsp.config("pyright", {
+  filetypes = {"python"},
+  capabilities = capabilities
+})
+
+vim.lsp.config("rust_analyzer", {
   capabilities = capabilities,
   on_attach=on_attach,
   settings = {
@@ -76,12 +69,12 @@ require'lspconfig'.rust_analyzer.setup({
   }
 })
 
-require"lspconfig".sqls.setup{
+vim.lsp.config("sqls", {
   capabilities = capabilities
-}
-require"lspconfig".taplo.setup{
+})
+vim.lsp.config("taplo", {
   capabilities = capabilities
-}
-require"lspconfig".yamlls.setup{
+})
+vim.lsp.config("yamlls", {
   capabilities = capabilities
-}
+})
