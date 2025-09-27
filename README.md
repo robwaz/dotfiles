@@ -1,14 +1,14 @@
 # robwaz's dotfiles / quick install script
 
-These are my commonly used dotfiles and base install script for quickly installing my preferred packages and tools on mac linux, and dockerized environments.
+Quick and dirty install script that gets a box reasonably functional for MacOS, linux, and dockerized environments.
 
-The goal of this repo is serve as a sane baseline for packages and configs I generally expect everywhere.  Since the overarching goal is for it provide a consistent experience across hosts, some settings are less than ideal, but tend to work everywhere.
+The goal of this repo is serve as a sane baseline for packages and configs I generally expect everywhere.  Goal is to provide a consistent experience across hosts.
 
-Use at our own risk!
+Use at your own risk!
 
 ## Usage - DO NOT DO THIS
 ```
-git clone git@github.com:robwaz/dotifles ~/
+git clone git@github.com:robwaz/dotfiles ~/
 mv ~/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ./install.sh
