@@ -40,6 +40,8 @@ if [[ $YUBIKEY = y ]]; then
   echo "export YUBIKEY_CLIENT=1" | tee -a ./config_vars.sh
   # Yubico ppa
   sudo apt-add-repository -y ppa:yubico/stable
+  mkdir ~/.gnupg
+  echo "enable-ssh-support" >> ~/.gnupg/gpg-agent.conf
 fi
 
 # Misc setup BS

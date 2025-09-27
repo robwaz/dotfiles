@@ -1,16 +1,12 @@
 discord
 doxie
-evernote
 firefox
 google-chrome
 iterm2
 microsoft-office
 obs
-omnifocus
-omnigraffle
 slack
 spotify
 tunnelblick
 vlc
-vscodium
 zoom

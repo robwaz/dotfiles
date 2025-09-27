@@ -4,7 +4,6 @@ bash-language-server
 binutils
 cilium-cli
 ctags
-docker
 hadolint
 hlint
 hping

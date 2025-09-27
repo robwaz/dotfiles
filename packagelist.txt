@@ -3,7 +3,6 @@ automake
 bear
 black
 bvi
-clang
 cmake
 cowsay
 curl
@@ -23,6 +22,7 @@ libtool
 llvm
 mpv
 nmap
+neovim
 npm
 pandoc
 parallel
