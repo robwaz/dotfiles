@@ -10,7 +10,7 @@ hlint
 hping
 ipython
 ninja
-nvim
+neovim
 openssh
 protobuf
 pyright
