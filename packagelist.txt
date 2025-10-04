@@ -29,6 +29,7 @@ pandoc
 parallel
 patchelf
 pkg-config
+pgcli
 python3
 ranger
 rclone
