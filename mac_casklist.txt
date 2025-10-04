@@ -5,8 +5,11 @@ google-chrome
 iterm2
 microsoft-office
 obs
+obsidian
+powershell
 slack
 spotify
 tunnelblick
 vlc
 zoom
+zotero
