@@ -3,6 +3,7 @@ awk
 bash-language-server
 binutils
 cilium-cli
+codex
 ctags
 hadolint
 hlint
