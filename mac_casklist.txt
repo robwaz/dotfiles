@@ -1,6 +1,7 @@
 discord
 doxie
 firefox
+ghidra
 google-chrome
 iterm2
 microsoft-office
@@ -9,6 +10,7 @@ obsidian
 powershell
 slack
 spotify
+temurin
 tunnelblick
 vlc
 zoom
