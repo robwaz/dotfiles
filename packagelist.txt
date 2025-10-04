@@ -7,6 +7,7 @@ cmake
 cowsay
 curl
 doxygen
+elixir
 feh
 ffmpeg
 gcc
