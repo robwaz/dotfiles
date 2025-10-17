@@ -5,6 +5,7 @@ ghidra
 google-chrome
 iterm2
 microsoft-office
+mosh
 mullvad-vpn
 mullvad-browser
 obs
