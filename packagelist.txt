@@ -20,6 +20,7 @@ htop
 imagemagick
 iperf
 irssi
+just
 libtool
 llvm
 mpv

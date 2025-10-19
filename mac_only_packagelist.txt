@@ -14,5 +14,6 @@ neovim
 openssh
 protobuf
 pyright
-tesseract
 rust-analyzer
+tesseract
+zig
