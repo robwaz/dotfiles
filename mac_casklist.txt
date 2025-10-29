@@ -11,6 +11,7 @@ mullvad-browser
 obs
 obsidian
 powershell
+raycast
 slack
 spotify
 temurin
