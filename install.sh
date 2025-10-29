@@ -88,11 +88,16 @@ python3 -mpip install --break-system-packages --user $(paste -sd ' ' ./python_pa
 rm -rf ~/.config/nvim
 ln -s ${PWD}/neovim  ~/.config/nvim
 
+
+
 # Set Home Directory
 ln -sf ${PWD}/pylintrc ~/.pylintrc
 ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 ln -sf ${PWD}/shellrc ~/.zshrc
 ln -sf ${PWD}/shellrc ~/.bashrc
+
+mkdir -p ${HOME}/.config/ghostty
+ln -sf ${PWD}/ghostty.conf ~/.config/ghostty/config
 
 mkdir -p ${HOME}/.ipython/profile_default
 ln -sf ${PWD}/ipython_config.py ${HOME}/.ipython/profile_default/ipython_config.py
