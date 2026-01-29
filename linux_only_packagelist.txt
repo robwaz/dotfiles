@@ -1,6 +1,7 @@
 clang
 cryptsetup
 dirmngr
+erlang-dev
 flatpak
 g++
 gdb
