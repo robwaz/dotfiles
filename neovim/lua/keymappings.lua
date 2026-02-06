@@ -29,6 +29,8 @@ vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', OPTS)
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', OPTS)
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', OPTS)
 vim.keymap.set('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', OPTS)
+vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = "Diagnostics to QFL" })
 
 -- Better window movement
 vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true})
