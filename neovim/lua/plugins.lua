@@ -16,6 +16,9 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'onsails/lspkind.nvim'
 
+  -- elixir ?? not happy with this
+  use 'elixir-editors/vim-elixir'
+
   -- LSP
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
