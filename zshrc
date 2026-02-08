@@ -44,6 +44,8 @@ precmd_functions+=(_fix_cursor)
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+source ~/.dotfiles/kubectl.zsh
+
 # Bindings
 # Use vim cli mode
 bindkey '^P' up-history
