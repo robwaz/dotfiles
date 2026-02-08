@@ -1,5 +1,6 @@
 ag
 awk
+awscli
 bash-language-server
 binutils
 cilium-cli
