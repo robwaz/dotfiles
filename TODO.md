@@ -18,3 +18,6 @@ For most python tools, I  clone down the project and use `uv tool`.
 A few notable projects:
 - [top4grep](https://github.com/Kyle-Kyle/top4grep)
 - [decomp2gdb](https://github.com/mahaloz/decomp2dbg)
+
+## Misc
+- angr management
