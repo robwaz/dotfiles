@@ -25,6 +25,11 @@ vim.lsp.config("docker_compose_language_service", {
 vim.lsp.config("dockerls", {
   capabilities = capabilities
 })
+vim.lsp.config("expert", {
+  filetypes = {"elixir", "eelixir", "heex"},
+  root_markers= {"mix.exs", ".git"},
+  capabilities = capabilities
+})
 vim.lsp.config("hls", {
   filetypes = {"haskell"},
   capabilities = capabilities

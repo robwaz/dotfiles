@@ -7,6 +7,7 @@ require("mason-lspconfig").setup{
     "cmake",
     "docker_compose_language_service",
     "dockerls",
+    "expert",
     "jsonls",
     "ltex",
     "lua_ls",
