@@ -10,6 +10,7 @@ hadolint
 hlint
 hping
 ipython
+jj
 ninja
 neovim
 openssh
