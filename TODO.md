@@ -5,6 +5,11 @@
 - binja
 - 1password
 
+## Rust toolchain packages (once rust toolchain is good)
+- mise
+- jj-cli
+
+
 ## Mac - Automate app store downloads
 
 ## Adobe nonsense
