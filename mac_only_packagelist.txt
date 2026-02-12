@@ -11,6 +11,7 @@ hlint
 hping
 ipython
 jj
+mise
 ninja
 neovim
 openssh
