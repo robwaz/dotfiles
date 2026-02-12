@@ -41,6 +41,9 @@ precmd_functions+=(_fix_cursor)
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# mise - runtime version manager
+eval "$(mise activate zsh)"
+
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
