@@ -6,6 +6,7 @@ binutils
 cilium-cli
 codex
 ctags
+gh
 hadolint
 hlint
 hping
