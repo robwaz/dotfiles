@@ -30,8 +30,18 @@ vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', OPTS)
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', OPTS)
 vim.keymap.set('n', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', OPTS)
 vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, { desc = "Show diagnostics" })
-vim.keymap.set('n', '<leader>dq', vim.diagnostic.setqflist, { desc = "Diagnostics to QFL" })
 vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "Diagnostics to LocList" })
+
+-- Quickfix 
+vim.keymap.set('n', ']q', '<cmd>cnext<cr>', { desc = 'Next quickfix item' })
+vim.keymap.set('n', '[q', '<cmd>cprev<cr>', { desc = 'Previous quickfix item' })
+vim.keymap.set('n', '<leader>co', '<cmd>copen<cr>', { desc = 'Open quickfix list' })
+vim.keymap.set('n', '<leader>cc', '<cmd>cclose<cr>', { desc = 'Close quickfix list' })
+vim.keymap.set('n', ']Q', '<cmd>clast<cr>', { desc = 'Last quickfix item' })
+vim.keymap.set('n', '[Q', '<cmd>cfirst<cr>', { desc = 'First quickfix item' })
+
+vim.keymap.set('n', '<leader>cd', vim.diagnostic.setqflist, { desc = "Diagnostics to QFL" })
+vim.keymap.set('n', '<leader>cs', vim.lsp.buf.document_symbol, { desc = "Symbols to QFL" })
 
 -- Better window movement
 vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true})
