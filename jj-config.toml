@@ -1,0 +1,14 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Robert Wasinger"
+email = "robwaz@robwaz.net"
+
+[ui]
+default-command = "log"
+show-cryptographic-signatures = true
+
+[signing]
+behavior = "own"
+backend = "gpg"
+key = "robwaz@robwaz.net"
