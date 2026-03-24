@@ -7,6 +7,7 @@ cilium-cli
 codex
 ctags
 gh
+git-cliff
 hadolint
 hlint
 hping
