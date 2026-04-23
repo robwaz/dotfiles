@@ -2,6 +2,7 @@ autoconf
 automake
 bear
 black
+btop
 bvi
 cmake
 cowsay
