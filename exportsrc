@@ -8,6 +8,9 @@ export PATH="$PATH:${HOME}/.npm-global/bin/"
 export PATH="$PATH:${HOME}/.local/bin/"
 export DOCKER_BUILDKIT=1
 
+# Rust
+export PATH="${HOME}/.cargo/bin:${PATH}"
+
 if [[ ${MAC} == 1 ]]; then
   export PATH="/opt/homebrew/bin:${PATH}"
   export PATH="/opt/homebrew/Cellar/coreutils/9.4/libexec/gnubin:${PATH}"
