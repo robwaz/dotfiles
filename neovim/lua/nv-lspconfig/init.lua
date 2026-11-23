@@ -28,7 +28,11 @@ vim.lsp.config("dockerls", {
 vim.lsp.config("expert", {
   filetypes = {"elixir", "eelixir", "heex"},
   root_markers= {"mix.exs", ".git"},
-  capabilities = capabilities
+  capabilities = capabilities,
+  cmd_env = {
+    ERL_AFLAGS = '-kernel inet_dist_use_interface {127,0,0,1}',
+    ERL_EPMD_ADDRESS = '127.0.0.1',
+  },
 })
 vim.lsp.config("hls", {
   filetypes = {"haskell"},
